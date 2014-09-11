@@ -24,5 +24,14 @@ module Server
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
+
+    config_file = Rails.root.join('config/settings.yml')
+    if File.exist? config_file
+      Settings.read(config_file)
+    else
+      raise "Please, create a #{config_file}!"
+    end
+
+    config.action_mailer.default_url_options = { host: Settings['app.host'], port: Settings['app.port'] }
   end
 end

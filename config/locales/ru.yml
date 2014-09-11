@@ -1,1 +1,30 @@
 ru:
+  app_name:                             Система аутентификации ТУСУР
+  email_wrong_format:                   неверный формат электронной почты
+  no_email_servirce:                    нет такого почтового сервиса
+  not_authorized:                       Доступ запрещен
+  should_contains_only_cyrillic_chars:  должен содержать только кириллические символы
+  should_looks_like_name:               должен выглядеть как имя
+  should_starts_with_capital_letter:    должен начинаться с большой буквы
+
+  activerecord:
+    attributes:
+      user:
+        current_password:               Текущий пароль
+        email:                          Электронная почта
+        name:                           Имя
+        password:                       Пароль
+        password_confirmation:          Подтверждение пароля
+        patronymic:                     Отчество
+        remember_me:                    Запомнить меня
+        surname:                        Фамилия
+
+    models:
+      user:                             Пользователь
+      identity:                         oAuth аккаунт
+
+  simple_form:
+    hints:
+      user:
+        current_password:               Необходим для подтверждения изменений
+

@@ -1,3 +1,9 @@
 Server::Application.routes.draw do
-  root :to => 'application#index'
+  devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
+
+  resources :users, :only => [:index] do
+    resources :identities, :only => [:destroy]
+  end
+
+  root :to => 'welcome#index'
 end

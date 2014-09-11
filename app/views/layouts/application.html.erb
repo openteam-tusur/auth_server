@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Server</title>
+    <title><%= I18n.t('app_name') %></title>
     <%= stylesheet_link_tag    'application', :media => 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% [notice, alert].compact.each do |flash| %>
+      <p class="flash_message"><%= flash %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= current_user %>
+      <%= link_to 'Пользователи', users_path if current_user.admin? %>
+      <%= link_to 'Редактировать профиль', edit_user_registration_path %>
+      <%= link_to 'Выход', destroy_user_session_path, :method => :delete, :data => { :confirm => 'Вы точно, хотите выйти?'} %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

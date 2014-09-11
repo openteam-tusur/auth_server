@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Server::Application.config.secret_key_base = '72f2142e99ebb5ef9095672ced47cd38b107e06aa20ab4a171e48393839bcd856518b2c222b27f08dc351c3a88873cf24ca2d9026b6a5f9461558df71ff54aea'
+Server::Application.config.secret_key_base = Settings['app.secret']

@@ -1,0 +1,23 @@
+<ul>
+  <% if controller_name != 'sessions' %>
+    <li><%= link_to 'Войти', new_session_path(resource_name) %></li>
+  <% end %>
+
+  <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <li><%= link_to 'Регистрация', new_registration_path(resource_name) %></li>
+  <% end %>
+
+  <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <li><%= link_to 'Забыли пароль?', new_password_path(resource_name) %></li>
+  <% end %>
+
+  <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <li><%= link_to 'Не получили подтверждающее письмо?', new_confirmation_path(resource_name) %></li>
+  <% end %>
+
+  <% if devise_mapping.omniauthable? %>
+    <% resource_class.omniauth_providers.each do |provider| %>
+      <li><%= link_to provider.to_s.titleize, omniauth_authorize_path(resource_name, provider), :class => "sign_in_with #{provider}" %></li>
+    <% end %>
+  <% end %>
+</ul>

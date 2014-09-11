@@ -1,0 +1,5 @@
+<p>Добрый день, <%= @email %>!</p>
+
+<p>Подтвердите вашу регистрацию по следующей ссылке:</p>
+
+<p><%= link_to 'Подтвердить мою регистрацию', confirmation_url(@resource, :confirmation_token => @token) %></p>
