@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   end
 
   def after_database_authentication
-    UserRedisConnector.instance.set(self.id, self.as_json(:only => [:surname, :name, :patronymic, :email]).to_a.flatten)
+   RedisUserConnector.set(self.id, self.as_json(:only => [:surname, :name, :patronymic, :email]).to_a.flatten)
   end
 
   def admin?
