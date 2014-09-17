@@ -27,6 +27,9 @@ session_store:
 users_storage:
   url:       redis://url:port/
 
+redis:
+  url:       redis://url:port/
+
 # choose url or socket connection
 redis_user_connector:
   #url:      redis://url:port/database
