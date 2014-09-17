@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :default do
+  gem 'airbrake'
   gem 'attribute_normalizer',       '~> 1.2.0'
   gem 'browser'
   gem 'coffee-rails',               '~> 4.0.0'
@@ -32,6 +33,5 @@ group :development do
 end
 
 group :production do
-  gem 'airbrake'
   gem 'unicorn'
 end
