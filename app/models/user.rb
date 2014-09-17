@@ -1,5 +1,3 @@
-require 'user_redis_connector'
-
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable,              :trackable,
