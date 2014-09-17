@@ -31,3 +31,6 @@ users_storage:
 redis_user_connector:
   #url:      redis://url:port/database
   #socket:   /path/to/redis.sock
+
+postmark:
+  api_key:   KEY
