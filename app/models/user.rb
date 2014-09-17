@@ -1,3 +1,5 @@
+require 'user_redis_connector'
+
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
@@ -56,6 +58,10 @@ class User < ActiveRecord::Base
     else
       scoped
     end
+  end
+
+  def after_database_authentication
+    UserRedisConnector.instance.set(self.id, self.as_json(:only => [:surname, :name, :patronymic, :email]).to_a.flatten)
   end
 
   def admin?

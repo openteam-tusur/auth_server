@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, :if => :devise_controller?
   before_action :collect_user_info
+  before_action :collect_redirect_url
 
   private
   def configure_permitted_parameters
@@ -11,5 +12,17 @@ class ApplicationController < ActionController::Base
 
   def collect_user_info
     current_user.update_columns(:last_active_at => Time.zone.now, :user_agent => browser) if current_user
+  end
+
+  def collect_redirect_url
+    session['redirect_url'] ||= params['redirect_url']
+  end
+
+  def after_sign_in_path_for(resource)
+    session.delete('redirect_url') || super
+  end
+
+  def after_sign_out_path_for(resource)
+    params['redirect_url'] || super
   end
 end
