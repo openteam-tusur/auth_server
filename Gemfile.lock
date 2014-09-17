@@ -239,6 +239,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   attribute_normalizer (~> 1.2.0)
   browser
   coffee-rails (~> 4.0.0)
