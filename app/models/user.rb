@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable,              :trackable,
          :validatable,              :confirmable,
-         :omniauthable,             :timeoutable
+         :omniauthable,             :timeoutable,
+         :async
 
   validates_email_format_of :email,            :message    => I18n.t('email_wrong_format'),
                             :check_mx => true, :mx_message => I18n.t('no_email_servirce')
