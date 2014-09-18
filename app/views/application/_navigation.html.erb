@@ -1,0 +1,43 @@
+<% content_for :tusur_header_second_menu do %>
+  <ul class='nav navbar-nav hidden-sm'>
+    <li class='dropdown'>
+      <a href='/' class='dropdown-toggle has_arrow' data-toggle='dropdown'><%= I18n.t('app_name') %><b class='caret'></b></a>
+      <%= render_navigation :renderer => :first_renderer, :level => 1 %>
+    </li>
+  </ul>
+<% end %>
+
+<% content_for :tusur_header_auth_block do %>
+  <ul class='nav navbar-nav navbar-right auth_block'>
+    <% if user_signed_in? %>
+      <li class="dropdown">
+        <div class="dropdown-toggle login" data-toggle='dropdown'>
+          <span class='current_user truncated'><%= current_user %></span>
+          <b class='caret'></b>
+        </div>
+
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to 'Выход', destroy_user_session_path, :method => :delete, :data => { :confirm => 'Вы точно, хотите выйти?' } %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li class='sign_in'>
+        <%= link_to 'Вход в систему', new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% content_for :tusur_header_second_menu_left do %>
+  <%= render_navigation :renderer => :second_renderer %>
+<% end %>
+
+<% content_for :tusur_header_mobile_menu_block do %>
+  <ul class='nav navbar-nav'>
+    <%= render_navigation :renderer => :mobile_menu_renderer, :level => 1 %>
+  </ul>
+<% end %>
+
+<%= render :partial => 'tusur_header/tusur_header' %>

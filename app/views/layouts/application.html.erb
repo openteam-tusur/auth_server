@@ -5,19 +5,24 @@
     <%= stylesheet_link_tag    'application', :media => 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico'%>
   </head>
   <body>
-    <% [notice, alert].compact.each do |flash| %>
-      <p class="flash_message"><%= flash %></p>
-    <% end %>
+    <div class="wrapper">
+      <%= render 'navigation' %>
 
-    <% if user_signed_in? %>
-      <%= current_user %>
-      <%= link_to 'Пользователи', users_path if current_user.admin? %>
-      <%= link_to 'Редактировать профиль', edit_user_registration_path %>
-      <%= link_to 'Выход', destroy_user_session_path, :method => :delete, :data => { :confirm => 'Вы точно, хотите выйти?'} %>
-    <% end %>
+      <div class='container'>
+        <% [notice, alert].compact.each do |flash| %>
+          <p class="flash_message"><%= flash %></p>
+        <% end %>
 
-    <%= yield %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render :partial => 'footer' %>
+    <%= render :partial => 'metrika' %>
+
+    <%= yield :stop_ie if content_for?(:stop_ie) %>
   </body>
 </html>
