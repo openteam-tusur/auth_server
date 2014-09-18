@@ -29,6 +29,10 @@ ru:
         current_password:               Необходим для подтверждения изменений
 
   page_title:
+    devise:
+      sessions:
+        new:                            Вход в систему
+
     users:
       index:                            Управление пользователями
       edit:                             Профиль

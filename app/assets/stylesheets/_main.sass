@@ -71,3 +71,69 @@ table
 
       &:hover
         text-decoration: none
+
+.form-title
+  color: #333
+  display: block
+  font-size: 18px
+  font-weight: 400
+
+.account-wall
+  +box-shadow(0 1px 1px #d0d4d5)
+  background: #f3f3f3
+  margin: 20px 0
+  padding: 20px 30px
+
+  .avatar
+    +border-radius(50%)
+    display: block
+    height: 96px
+    margin: 0 auto 10px
+    width: 96px
+
+  .account-name
+    font-size: 16px
+    font-weight: bold
+    margin: 10px 0 0
+    text-align: center
+
+  .account-email
+    color: #404040
+    padding: 0 8px
+
+  .form-signin
+    margin: 0 auto
+    max-width: 330px
+
+    .form-group
+      padding: 0 10px
+
+.separator
+  color: #555
+  font-size: 14px
+  line-height: 14px
+  margin: 20px 0
+  position: relative
+  text-align: center
+
+  &:before, &:after
+    display: block
+    content: ''
+    background-color: #ccc
+    height: 1px
+    position: absolute
+    top: 8px
+    width: 40%
+
+  &:before
+    left: 7px
+
+  &:after
+    right: 7px
+
+.providers
+  &:before
+    content: ''
+
+  li
+    margin: 10px 0

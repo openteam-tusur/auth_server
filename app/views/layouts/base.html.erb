@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= I18n.t('app_name') %></title>
+    <%= stylesheet_link_tag    'application', :media => 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico'%>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%= render 'navigation' %>
+
+      <div class='container'>
+        <% [notice, alert].compact.each do |flash| %>
+          <p class="flash_message"><%= flash %></p>
+        <% end %>
+
+        <%= yield :content %>
+      </div>
+    </div>
+
+    <%= render :partial => 'footer' %>
+    <%= render :partial => 'metrika' %>
+
+    <%= yield :stop_ie if content_for?(:stop_ie) %>
+  </body>
+</html>

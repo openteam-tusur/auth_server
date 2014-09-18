@@ -1,8 +1,6 @@
-<h2>Подтверждение регистрации</h2>
-
 <%= simple_form_for resource, :url => confirmation_path(resource_name), :method => :post do |f| %>
   <%= f.input :email, :autofocus => true %>
   <%= f.submit 'Выслать письмо с информацией о подтверждении' %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/providers" %>
