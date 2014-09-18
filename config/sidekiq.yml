@@ -2,8 +2,10 @@
 :concurrency: 5
 :queues:
   - [default, 1]
+  - [mailer, 4]
 
 production:
   :concurrency: 5
   :queues:
-    - [default, 5]
+    - [default, 1]
+    - [mailer, 4]
