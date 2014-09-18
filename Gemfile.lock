@@ -30,7 +30,7 @@ GEM
       multi_json
     arel (4.0.2)
     attribute_normalizer (1.2.0)
-    auth_redis_user_connector (0.0.1)
+    auth_redis_user_connector (0.0.2)
       hiredis
       redis
     bcrypt (3.1.7)
