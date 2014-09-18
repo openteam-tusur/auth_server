@@ -24,6 +24,7 @@ group :default do
   gem 'sass-rails',                 '~> 4.0.3'
   gem 'sidekiq'
   gem 'simple_form',                '~> 3.0.2'
+  gem 'sinatra'
   gem 'uglifier',                   '>= 1.3.0'
   gem 'validates_email_format_of',  '~> 1.6.1'
 end
