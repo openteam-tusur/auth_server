@@ -1,19 +1,33 @@
-<h2>Редактирование профиля</h2>
+<div class="tab-sidebar">
+  <ul class="nav">
+    <li class="active">
+      <%= link_to 'Редактировать профиль', edit_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to 'Ключница', user_identities_path(@user) %>
+    </li>
+  </ul>
+</div>
 
-<%= simple_form_for resource, :url => registration_path(resource_name), :method => :put do |f| %>
-  <%= f.input :surname %>
-  <%= f.input :name %>
-  <%= f.input :patronymic %>
-  <%= f.input :email %>
-  <%= f.input :password, :hint => 'Оставьте пустым, если не хотите менять пароль' %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :current_password %>
-  <%= f.submit 'Изменить' %>
-<% end %>
+<div class="tab-content">
+  <%= simple_form_for resource, :url => registration_path(resource_name), :method => :put,
+    :html => { :class => 'form-signin' },
+    :wrapper => :vertical_form do |f| %>
 
-<h3>Отмена учетной записи</h3>
-<%= link_to 'Удалить мою учетную запись', registration_path(resource_name),
-            :data => { :confirm => 'Вы точно, хотите удалить вашу учетную запись?' },
-            :method => :delete %></p>
+    <%= f.input :surname, :label => false, :placeholder => 'Фамилия' %>
+    <%= f.input :name, :label => false, :placeholder => 'Имя' %>
+    <%= f.input :patronymic, :label => false, :placeholder => 'Отчество' %>
+    <%= f.input :email, :label => false, :placeholder => 'Адрес электронной почты' %>
+    <%= f.input :current_password, :label => false, :placeholder => 'Текущий пароль' %>
 
-<%= link_to 'Назад', :back %>
+    <%= f.input :password, :hint => 'Оставьте пустым, если не хотите менять пароль', :label => false, :placeholder => 'Пароль' %>
+    <%= f.input :password_confirmation, :label => false, :placeholder => 'Пароль еще раз' %>
+
+    <%= f.submit 'Сохранить', :class => 'btn btn-primary' %>
+    <%= link_to 'Удалить мою учетную запись', registration_path(resource_name),
+              :data => { :confirm => 'Вы точно, хотите удалить вашу учетную запись?' },
+              :class => 'btn btn-danger pull-right',
+              :method => :delete %>
+  <% end %>
+
+</div>

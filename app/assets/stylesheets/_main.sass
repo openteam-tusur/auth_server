@@ -171,3 +171,40 @@ table
   top: 0
   width: 420px
   z-index: 99999
+
+.tab-sidebar, .tab-content
+  float: left
+
+.tab-sidebar
+  width: 20%
+
+  ul
+    margin: 0 -1px 0 0
+
+  li
+    a:hover
+      +border-bottom-left-radius(2px)
+      +border-top-left-radius(2px)
+      color: #005582
+      border-right: 1px solid #dedede
+
+    &.active
+      +border-bottom-left-radius(2px)
+      +border-top-left-radius(2px)
+      border: 1px solid #dedede
+      border-right: none
+      background: #fff
+
+      a
+        color: #000
+
+        &:hover
+          border-right: none
+
+.tab-content
+  border-left: 1px solid #dedede
+  border-top: 1px solid #dedede
+  height: 100%
+  min-height: 275px
+  padding: 15px
+  width: 80%

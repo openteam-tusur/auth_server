@@ -1,4 +1,8 @@
 <%= content_for :content do %>
+  <h1>
+    <%= I18n.t("page_title.devise.#{controller_name}.#{action_name}") %>
+  </h1>
+
   <%= yield %>
 <% end %>
 

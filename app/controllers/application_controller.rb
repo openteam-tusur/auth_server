@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :collect_user_info
   before_action :collect_redirect_url
 
-  layout :define_layout
-
   private
 
   def configure_permitted_parameters
@@ -28,9 +26,5 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     params['redirect_url'] || super
-  end
-
-  def define_layout
-    devise_controller? ? 'session' : 'application'
   end
 end
