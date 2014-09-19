@@ -1,6 +1,9 @@
-<%= simple_form_for resource, :url => confirmation_path(resource_name), :method => :post do |f| %>
-  <%= f.input :email, :autofocus => true %>
-  <%= f.submit 'Выслать письмо с информацией о подтверждении' %>
+<%= simple_form_for resource, :url => confirmation_path(resource_name), :method => :post,
+  :html => { :class => 'form-horizontal form-signin' },
+  :wrapper => :vertical_form do |f| %>
+
+  <%= f.input :email, :autofocus => true, :label => false, :placeholder => 'Адрес электронной почты' %>
+  <%= f.submit 'Поддтвердить учетную запись', :class => 'btn btn-primary btn-block' %>
 <% end %>
 
 <%= render "devise/shared/providers" %>

@@ -7,6 +7,9 @@ ru:
   should_looks_like_name:               должен выглядеть как имя
   should_starts_with_capital_letter:    должен начинаться с большой буквы
 
+  identity:
+    not_found:                          Профиль не связан с какой-либо учетной записью. Войдите на сайт или зарегистирируйтесь, чтобы связать свою учетную запись с профилем социальной сети.
+
   activerecord:
     attributes:
       user:
@@ -47,6 +50,9 @@ ru:
     users:
       index:                            Управление пользователями
       edit:                             Профиль
+
+    identities:
+      index:                            Связанные аккаунты
 
     main_page:
       index:                            Добро пожаловать

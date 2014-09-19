@@ -1,13 +1,24 @@
-<%= render resource.identities %>
+<div class="alert alert-warning">
+  <div class="identity">
+    <%= render resource.identities %>
+  </div>
 
-<%= simple_form_for resource, :url => registration_path(resource_name) do |f| %>
-  <%= f.input :surname %>
-  <%= f.input :name %>
-  <%= f.input :patronymic %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit 'Зарегистрироваться' %>
+  <div class="text">
+    <%= I18n.t('identity.not_found') %>
+  </div>
+</div>
+
+<%= simple_form_for resource, :url => registration_path(resource_name),
+  :html => { :class => 'form-horizontal form-signin' },
+  :wrapper => :vertical_form do |f| %>
+
+  <%= f.input :surname, :label => false, :placeholder => 'Фамилия' %>
+  <%= f.input :name, :label => false, :placeholder => 'Имя' %>
+  <%= f.input :patronymic, :label => false, :placeholder => 'Отчество' %>
+  <%= f.input :email, :label => false, :placeholder => 'Адрес электронной почты' %>
+  <%= f.input :password, :label => false, :placeholder => 'Пароль' %>
+  <%= f.input :password_confirmation, :label => false, :placeholder => 'Пароль еще раз' %>
+  <%= f.submit 'Зарегистрироваться', :class => 'btn btn-primary btn-block' %>
 <% end %>
 
 <%= render "devise/shared/providers" %>

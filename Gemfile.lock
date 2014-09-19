@@ -132,8 +132,13 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
+    omniauth-facebook (2.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-github (1.1.2)
       omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.2.5)
+      omniauth (> 1.0)
       omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
@@ -146,6 +151,10 @@ GEM
     omniauth-twitter (1.0.1)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
+    omniauth-vkontakte (1.3.3)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     openteam-capistrano (1.0.10)
       airbrake (~> 3.1.16)
       capistrano (~> 3.1)
@@ -291,8 +300,11 @@ DEPENDENCIES
   kaminari (~> 0.16.1)
   non-stupid-digest-assets
   omniauth (~> 1.2.2)
+  omniauth-facebook
   omniauth-github
+  omniauth-google-oauth2
   omniauth-twitter
+  omniauth-vkontakte
   openteam-capistrano (~> 1.0.10)
   pg
   postmark-rails
