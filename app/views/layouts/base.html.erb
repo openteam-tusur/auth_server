@@ -13,7 +13,9 @@
 
       <div class='container'>
         <% [notice, alert].compact.each do |flash| %>
-          <p class="flash_message"><%= flash %></p>
+          <div class='alert flash_message <%= alert ? 'alert-danger' : 'alert-success' %>'>
+            <%= flash %>
+          </div>
         <% end %>
 
         <%= yield :content %>
