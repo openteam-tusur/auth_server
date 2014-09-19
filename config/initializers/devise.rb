@@ -258,4 +258,13 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  # Devise layout configuration
+  Rails.application.config.to_prepare do
+    Devise::SessionsController.layout "session"
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "session" }
+    Devise::ConfirmationsController.layout "session"
+    Devise::UnlocksController.layout "session"
+    Devise::PasswordsController.layout "session"
+  end
 end

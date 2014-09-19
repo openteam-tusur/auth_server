@@ -35,16 +35,6 @@ module Auth
     end
 
     config.action_mailer.default_url_options = { host: Settings['app.host'], port: Settings['app.port'] }
-
-    # Devise layout configuration
-    config.to_prepare do
-      Devise::SessionsController.layout "session"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "session" }
-      Devise::ConfirmationsController.layout "session"
-      Devise::UnlocksController.layout "session"
-      Devise::PasswordsController.layout "session"
-    end
-
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = Settings['smtp']
   end
