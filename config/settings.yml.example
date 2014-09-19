@@ -24,6 +24,14 @@ providers:
 session_store:
   url:       redis://url:port/
 
+smtp:
+  address:        ADDRESS
+  authentication: AUTH_METHOD
+  domain:         DOMAIN_NAME
+  password:       PASSWORD
+  port:           PORT
+  user_name:      USER_NAME
+
 users_storage:
   url:       redis://url:port/
 
@@ -34,6 +42,3 @@ redis:
 redis_user_connector:
   #url:      redis://url:port/database
   #socket:   /path/to/redis.sock
-
-postmark:
-  api_key:   KEY

@@ -42,5 +42,8 @@ module Server
       Devise::UnlocksController.layout "session"
       Devise::PasswordsController.layout "session"
     end
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = Settings['smtp']
   end
 end

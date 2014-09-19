@@ -42,6 +42,5 @@ group :development do
 end
 
 group :production do
-  gem 'postmark-rails'
   gem 'unicorn'
 end
