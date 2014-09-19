@@ -23,7 +23,7 @@ group :default do
   gem 'omniauth-twitter'
   gem 'omniauth-vkontakte'
   gem 'pg'
-  gem 'rails',                      '4.0.9'
+  gem 'rails',                      '4.1.6'
   gem 'redis',                      '~> 3.1.0'
   gem 'redis-rails'
   gem 'russian'
@@ -39,6 +39,7 @@ end
 
 group :development do
   gem 'openteam-capistrano',        '~> 1.0.10'
+  gem 'spring'
 end
 
 group :production do
