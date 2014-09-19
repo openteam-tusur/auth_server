@@ -12,6 +12,7 @@ group :default do
   gem 'devise-async'
   gem 'font-awesome-sass'
   gem 'hirb'
+  gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'kaminari',                   '~> 0.16.1'
   gem 'non-stupid-digest-assets'

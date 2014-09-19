@@ -46,13 +46,12 @@ ru:
       confirmations:
         new:                            Повторная отправка письма
         create:                         Повторная отправка письма
+      identities:
+        index:                            Связанные аккаунты
 
     users:
       index:                            Управление пользователями
       edit:                             Профиль
-
-    identities:
-      index:                            Связанные аккаунты
 
     main_page:
       index:                            Добро пожаловать

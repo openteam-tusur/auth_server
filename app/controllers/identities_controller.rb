@@ -1,6 +1,12 @@
 class IdentitiesController < ApplicationController
+  inherit_resources
+  belongs_to :user
+
+  actions :index, :destroy
+
   def destroy
-    current_user.identities.find(params[:id]).destroy
-    redirect_to edit_user_registration_path
+    destroy!{
+      render :nothing => true and return
+    }
   end
 end

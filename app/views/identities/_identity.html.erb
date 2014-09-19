@@ -1,2 +1,6 @@
+<h4>
+  <%= link_to identity.provider, identity.url %>
+</h4>
+
 <%= link_to image_tag(identity.image, :width => 32, :height => 32, :title => identity.url, :class => 'account-avatar'), identity.url %>
 <%= content_tag :span, identity.name, :class => 'account-name' %>

@@ -1,0 +1,39 @@
+<div class="tab-sidebar">
+  <ul class="nav">
+    <li>
+      <%= link_to 'Редактировать профиль', edit_user_registration_path %>
+    </li>
+    <li class="active">
+      <%= link_to 'Ключница', user_identities_path(@user) %>
+    </li>
+  </ul>
+</div>
+
+<div class="tab-content">
+  <div class="alert alert-info">
+    Для запрещения доступа с помощью социальной сети к учетной записи ТУСУР - необходимо удалить авторизованное приложение в настройках конкретной социальной сети!
+  </div>
+
+  <ul class="ajaxed">
+    <% @identities.each do |identity| %>
+      <li>
+        <%= render :partial => 'identities/identity', :object => identity %>
+
+        <%= link_to 'Удалить', user_identity_path(@user, identity),
+                    :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' },
+                    :class => 'btn btn-danger btn-sm pull-right js-delete',
+                    :remote => true,
+                    :method => :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <% parent.class.omniauth_providers.each do |provider| %>
+      <li>
+        <%= link_to "Связать #{provider.to_s.titleize}", omniauth_authorize_path(@user, provider) %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
