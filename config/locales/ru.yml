@@ -32,6 +32,12 @@ ru:
     devise:
       sessions:
         new:                            Вход в систему
+      registrations:
+        new:                            Регистрация
+      passwords:
+        new:                            Восстановление пароля
+      confirmations:
+        new:                            Повторная отправка письма
 
     users:
       index:                            Управление пользователями
