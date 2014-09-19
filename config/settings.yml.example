@@ -1,28 +1,36 @@
 app:
-  domain:    DOMAIN
-  host:      HOST
-  port:      PORT
-  secret:    SECRET
+  domain:         DOMAIN
+  host:           HOST
+  port:           PORT
+  secret:         SECRET
 
 devise:
-  mail_from: MAIL
-  secret:    SECRET
+  mail_from:      MAIL
+  secret:         SECRET
 
 errors:
-  key:       KEY
-  url:       URL
+  key:            KEY
+  url:            URL
 
 providers:
   github:
-    id:      APP_ID
-    secret:  APP_SECRET
+    id:           APP_ID
+    secret:       APP_SECRET
 
   twitter:
-    id:      APP_ID
-    secret:  APP_SECRET
+    id:           APP_ID
+    secret:       APP_SECRET
+
+redis:
+  url:            redis://url:port/
+
+# choose url or socket connection
+redis_user_connector:
+  #url:            redis://url:port/database
+  #socket:         /path/to/redis.sock
 
 session_store:
-  url:       redis://url:port/
+  url:            redis://url:port/
 
 smtp:
   address:        ADDRESS
@@ -30,15 +38,5 @@ smtp:
   domain:         DOMAIN_NAME
   password:       PASSWORD
   port:           PORT
+  ssl:            true
   user_name:      USER_NAME
-
-users_storage:
-  url:       redis://url:port/
-
-redis:
-  url:       redis://url:port/
-
-# choose url or socket connection
-redis_user_connector:
-  #url:      redis://url:port/database
-  #socket:   /path/to/redis.sock
