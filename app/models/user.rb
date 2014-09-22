@@ -53,9 +53,9 @@ class User < ActiveRecord::Base
 
   def self.text_search(query)
     if query.present?
-      scoped.where('email ILIKE :query OR surname ILIKE :query OR name ILIKE :query OR patronymic ILIKE :query', :query => "%#{query}%" )
+      all.where('email ILIKE :query OR surname ILIKE :query OR name ILIKE :query OR patronymic ILIKE :query', :query => "%#{query}%" )
     else
-      scoped
+      all
     end
   end
 
