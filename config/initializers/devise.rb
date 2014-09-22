@@ -13,7 +13,7 @@ Devise.setup do |config|
   config.mailer_sender = Settings['devise.mail_from']
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'DeviseCustomMailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -266,5 +266,6 @@ Devise.setup do |config|
     Devise::ConfirmationsController.layout "session"
     Devise::UnlocksController.layout "session"
     Devise::PasswordsController.layout "session"
+    Devise::Mailer.layout "email"
   end
 end

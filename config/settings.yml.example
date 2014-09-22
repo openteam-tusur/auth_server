@@ -3,6 +3,7 @@ app:
   host:           HOST
   port:           PORT
   secret:         SECRET
+  url:            https://app-url
 
 devise:
   mail_from:      MAIL
