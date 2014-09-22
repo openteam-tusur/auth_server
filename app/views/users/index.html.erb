@@ -1,37 +1,40 @@
-<%= form_tag users_path, :method => :get do %>
-  <%= text_field_tag :search, params[:search], :autofocus => true %>
-  <%= submit_tag :search, :value => 'Искать' %>
+<%= form_tag users_path, :method => :get, :class => 'form-search' do %>
+  <%= text_field_tag :search, params[:search], :autofocus => true, :class =>'string', :placeholder => 'Поиск пользователей' %>
+
+  <%= submit_tag :search, :value => 'Поиск', :class => 'btn btn-primary btn-sm' %>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>ФИО</th>
-      <th>Электронная почта</th>
-      <th>oAuth</th>
-      <th>Подтверждено</th>
-      <th>Кол-во входов</th>
-      <th>Последний вход</th>
-      <th>Последняя активность</th>
-      <th>IP</th>
-      <th>Браузер</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><%= user.fullname %></td>
-        <td><%= mail_to user.email %></td>
-        <td><%= render user.identities %></td>
-        <td><%= l(user.confirmed_at, :format => :long) if user.confirmed_at %></td>
-        <td><%= user.sign_in_count %></td>
-        <td><%= l(user.current_sign_in_at, :format => :long) if user.current_sign_in_at %></td>
-        <td><%= l(user.last_active_at, :format => :long) if user.last_active_at %></td>
-        <td><%= user.current_sign_in_ip %></td>
-        <td><%= user.user_agent.try(:name) %> <%= user.user_agent.try(:full_version) %> (<%= user.user_agent.try(:platform) %>)</td>
+        <th>ФИО</th>
+        <th>Электронная почта</th>
+        <th>oAuth</th>
+        <th>Подтверждено</th>
+        <th>Кол-во входов</th>
+        <th>Последний вход</th>
+        <th>Последняя активность</th>
+        <th>IP</th>
+        <th>Браузер</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.fullname %></td>
+          <td><%= mail_to user.email %></td>
+          <td><%= render user.identities %></td>
+          <td><%= l(user.confirmed_at, :format => :long) if user.confirmed_at %></td>
+          <td><%= user.sign_in_count %></td>
+          <td><%= l(user.current_sign_in_at, :format => :long) if user.current_sign_in_at %></td>
+          <td><%= l(user.last_active_at, :format => :long) if user.last_active_at %></td>
+          <td><%= user.current_sign_in_ip %></td>
+          <td><%= user.user_agent.try(:name) %> <%= user.user_agent.try(:full_version) %> (<%= user.user_agent.try(:platform) %>)</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= paginate @users %>

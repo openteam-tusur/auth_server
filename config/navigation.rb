@@ -3,8 +3,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |primary|
     if user_signed_in?
-      primary.item :users,     I18n.t('page_title.users.index'),     users_path                    if current_user.admin?
-      primary.item :edit,      I18n.t('page_title.users.edit'),      edit_user_registration_path
+      primary.item :users,     I18n.t('page_title.devise.users.index'),     users_path                    if current_user.admin?
+      primary.item :edit,      I18n.t('page_title.devise.users.edit'),      edit_user_registration_path
     else
       primary.item :main_page, I18n.t('page_title.main_page.index'), root_path
     end
