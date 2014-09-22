@@ -1,0 +1,9 @@
+<div class="tab-sidebar">
+  <ul class="nav">
+    <% { 'Редактировать профиль' => edit_user_registration_path,  'Ключница' => identities_path, 'Аватар' => edit_avatar_path }.each do |(title, path)| %>
+      <%= content_tag :li, :class => (current_page?(path) ? 'active' : 'stub') do %>
+        <%= link_to title, path %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

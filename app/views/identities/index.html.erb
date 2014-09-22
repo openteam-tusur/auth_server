@@ -1,13 +1,4 @@
-<div class="tab-sidebar">
-  <ul class="nav">
-    <li>
-      <%= link_to 'Редактировать профиль', edit_user_registration_path %>
-    </li>
-    <li class="active">
-      <%= link_to 'Ключница', user_identities_path(@user) %>
-    </li>
-  </ul>
-</div>
+<%= render :partial => 'commons/subnavigation' %>
 
 <div class="tab-content">
   <div class="alert alert-info">
@@ -19,7 +10,7 @@
       <li>
         <%= render :partial => 'identities/identity', :object => identity %>
 
-        <%= link_to 'Удалить', user_identity_path(@user, identity),
+        <%= link_to 'Удалить', identity_path(identity),
                     :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' },
                     :class => 'btn btn-danger btn-sm pull-right js-delete',
                     :remote => true,
@@ -29,9 +20,9 @@
   </ul>
 
   <ul>
-    <% parent.class.omniauth_providers.each do |provider| %>
+    <% User.omniauth_providers.each do |provider| %>
       <li>
-        <%= link_to "Связать #{provider.to_s.titleize}", omniauth_authorize_path(@user, provider) %>
+        <%= link_to "Связать #{provider.to_s.titleize}", omniauth_authorize_path(current_user, provider) %>
       </li>
     <% end %>
   </ul>

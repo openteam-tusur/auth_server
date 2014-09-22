@@ -1,0 +1,29 @@
+<%= render :partial => 'commons/subnavigation' %>
+
+<div class="tab-content">
+  <%= simple_form_for @avatar do |f| %>
+    <div class="errors">
+      <%= @avatar.errors.messages.values.join %>
+    </div>
+
+    <div class="radio">
+      <%= radio_button_tag 'avatar[identity_id]', 0, @avatar.identity.nil? %>
+      <%= label_tag 'avatar_identity_id_0' do %>
+        <span class="avatar_name">Gravatar</span>
+        <%= image_tag current_user.gravatar_url, :width => 96, :height => 96 %>
+      <% end %>
+    </div>
+
+    <% current_user.identities.each_with_index do |identity, index| %>
+      <div class="radio">
+        <%= radio_button_tag 'avatar[identity_id]', identity.id, @avatar.identity == identity, :id => "avatar_identity_id_#{index+1}" %>
+        <%= label_tag "avatar_identity_id_#{index+1}" do %>
+          <span class="avatar_name"><%= identity.name %> (<%= identity.url %>)</span>
+          <%= image_tag identity.image, :width => 96, :height => 96 %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

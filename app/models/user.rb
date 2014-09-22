@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+
   devise :database_authenticatable, :registerable,
          :recoverable,              :trackable,
          :validatable,              :confirmable,
@@ -11,6 +13,8 @@ class User < ActiveRecord::Base
   normalize_attributes  :surname, :name, :patronymic
   validates_presence_of :surname, :name, :email
 
+  delegate :url, :to => :avatar, :prefix => true
+
   VALIDATORS = {
     :should_contains_only_cyrillic_chars => /\A[а-яё -]+\z/i,
     :should_starts_with_capital_letter => /\A[А-ЯЁ]/,
@@ -22,6 +26,10 @@ class User < ActiveRecord::Base
   end
 
   has_many :identities, :dependent => :destroy
+  has_one  :avatar, :dependent => :destroy
+  has_gravatar :secure => true, :size => 96
+
+  after_create :create_avatar
 
   serialize :user_agent
 

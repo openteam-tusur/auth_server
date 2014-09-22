@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
 
-  resources :users, :only => [:index] do
-    resources :identities, :only => [:index, :destroy]
-  end
+  resources :users,      :only => [:index]
+  resource  :avatar,     :only => [:edit, :update]
+  resources :identities, :only => [:index, :destroy]
 
   root :to => 'welcome#index'
 end

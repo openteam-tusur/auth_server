@@ -1,12 +1,11 @@
 class IdentitiesController < ApplicationController
-  inherit_resources
-  belongs_to :user
-
-  actions :index, :destroy
+  def index
+    @identities = current_user.identities
+  end
 
   def destroy
-    destroy!{
-      render :nothing => true and return
-    }
+    @identity = current_user.identities.find(params[:id])
+    @identity.destroy
+    render :nothing => true
   end
 end
