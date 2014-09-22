@@ -22,7 +22,10 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.fullname %></td>
+          <td>
+            <%= user.fullname %>
+            <%= content_tag :div, '(Администратор)' if user.admin? %>
+          </td>
           <td><%= mail_to user.email %></td>
           <td><%= render user.identities %></td>
           <td><%= l(user.confirmed_at, :format => :long) if user.confirmed_at %></td>
