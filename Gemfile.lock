@@ -164,6 +164,9 @@ GEM
       multi_json
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
+    omniauth-yandex (0.0.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     openteam-capistrano (1.0.10)
       airbrake (~> 3.1.16)
       capistrano (~> 3.1)
@@ -303,6 +306,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   omniauth-vkontakte
+  omniauth-yandex
   openteam-capistrano (~> 1.0.10)
   pg
   premailer-rails
