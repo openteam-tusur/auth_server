@@ -40,3 +40,6 @@ smtp:
   port:           PORT
   ssl:            true
   user_name:      USER_NAME
+
+solr:
+  url:            http://path_to_solr/core/your_core
