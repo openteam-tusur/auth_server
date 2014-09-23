@@ -23,6 +23,7 @@ group :default do
   gem 'omniauth-google-oauth2'
   gem 'omniauth-twitter'
   gem 'omniauth-vkontakte'
+  gem 'omniauth-yandex'
   gem 'pg'
   gem 'premailer-rails'
   gem 'rails',                      '4.1.6'
