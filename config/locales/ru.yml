@@ -33,6 +33,8 @@ ru:
 
   page_title:
     devise:
+      avatars:
+        edit:                           Редактирование аватара
       sessions:
         new:                            Вход в систему
       registrations:

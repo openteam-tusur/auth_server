@@ -1,7 +1,7 @@
 <%= render :partial => 'commons/subnavigation' %>
 
 <div class="tab-content">
-  <%= simple_form_for @avatar do |f| %>
+  <%= simple_form_for @avatar, :html => { :class => 'form-avatar js-avatar' } do |f| %>
     <div class="errors">
       <%= @avatar.errors.messages.values.join %>
     </div>
@@ -9,8 +9,8 @@
     <div class="radio">
       <%= radio_button_tag 'avatar[identity_id]', 0, @avatar.identity.nil? %>
       <%= label_tag 'avatar_identity_id_0' do %>
-        <span class="avatar_name">Gravatar</span>
         <%= image_tag current_user.gravatar_url, :width => 96, :height => 96 %>
+        <span class="avatar-name"><%= link_to 'Gravatar', 'https://ru.gravatar.com/emails', :target => :_blank %></span>
       <% end %>
     </div>
 
@@ -18,12 +18,14 @@
       <div class="radio">
         <%= radio_button_tag 'avatar[identity_id]', identity.id, @avatar.identity == identity, :id => "avatar_identity_id_#{index+1}" %>
         <%= label_tag "avatar_identity_id_#{index+1}" do %>
-          <span class="avatar_name"><%= identity.name %> (<%= identity.url %>)</span>
           <%= image_tag identity.image, :width => 96, :height => 96 %>
+          <span class="avatar-name"><%= link_to identity.provider.capitalize, identity.url, :target => :_blank %></span>
         <% end %>
       </div>
     <% end %>
 
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit 'Сохранить', :class => 'btn btn-primary' %>
+    </div>
   <% end %>
 </div>
