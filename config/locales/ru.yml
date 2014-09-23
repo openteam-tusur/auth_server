@@ -53,8 +53,10 @@ ru:
       identities:
         index:                          Связанные аккаунты
       users:
-        index:                            Управление пользователями
-        edit:                             Профиль
+        index:                          Управление пользователями
+        edit:                           Профиль
+      welcome:
+        index:                          Добро пожаловать
 
     main_page:
       index:                            Добро пожаловать

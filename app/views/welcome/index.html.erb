@@ -1,0 +1,7 @@
+<%= current_user %>
+
+<%= image_tag current_user.avatar_url, :size => '128' %>
+<%= link_to 'изменить', edit_avatar_path %>
+
+<%= link_to 'Профиль', edit_user_registration_path %>
+<%= link_to 'Ключница', identities_path %>
