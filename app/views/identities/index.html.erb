@@ -5,16 +5,18 @@
     Для запрещения доступа с помощью социальной сети к учетной записи ТУСУР - необходимо удалить авторизованное приложение в настройках конкретной социальной сети!
   </div>
 
-  <ul class="ajaxed">
+  <ul class="ajaxed list identities">
     <% @identities.each do |identity| %>
-      <li>
+      <li class="list-item <%= cycle( "odd", "even" ) %>">
         <%= render :partial => 'identities/identity', :object => identity %>
 
-        <%= link_to 'Удалить', identity_path(identity),
-                    :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' },
-                    :class => 'btn btn-danger btn-sm pull-right js-delete',
-                    :remote => true,
-                    :method => :delete %>
+        <span class="actions pull-right">
+          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, identity_path(identity),
+            :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' },
+            :class => 'pull-right js-delete',
+            :remote => true,
+            :method => :delete %>
+        </span>
       </li>
     <% end %>
   </ul>

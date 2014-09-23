@@ -163,6 +163,14 @@ table
 .fa-google_oauth2
   @extend .fa-google-plus
 
+.help-block
+  font-size: 13px
+
+  &:before
+    content: '\2b11'
+    font-size: 22px
+    line-height: 14px
+
 .flash_message
   +border-top-left-radius(0)
   +border-top-right-radius(0)
@@ -257,3 +265,38 @@ table
     img
       border-color: #005bae
 
+.identity
+  display: block
+  margin: 5px 0
+
+// Lists -->
+.list
+  .list-item
+    line-height: 30px
+    margin: 5px 20px 5px 0
+    padding: 0 5px
+
+    &.list-bordered
+      border-top: 1px solid #d5d5d5
+
+      &:last-child
+        border-bottom: 1px solid #d5d5d5
+
+    &.even
+      background: #fff
+
+    &.odd
+      background: #f2f2f2
+
+    .identity
+      +inline-block
+      text-decoration: none
+
+    .actions
+      margin: 0 -25px 0 0
+
+      a
+        color: #9a9a9a
+        line-height: 40px
+
+// <-- // Lists
