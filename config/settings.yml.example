@@ -30,7 +30,10 @@ redis_user_connector:
   #socket:         /path/to/redis.sock
 
 session_store:
-  url:            redis://url:port/
+  db: ID
+  key_prefix: 'session:'
+  host: HOST
+  port: PORT
 
 smtp:
   address:        ADDRESS
