@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
     "#{self.fullname}, #{self.email}"
   end
 
-  def as_json(options)
-    super(:only => :id).merge(:label => info, :value => info)
+  def search_json
+    self.as_json(:only => :id).merge(:label => info, :value => info)
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

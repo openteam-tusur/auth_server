@@ -9,6 +9,6 @@ class UsersController < ApplicationController
       with(:fullname).starting_with(params[:term])
     end
 
-    render :json => search.results
+    render :json => search.results.map(&:search_json)
   end
 end
