@@ -1,7 +1,17 @@
-<%= current_user %>
+<div class="media">
+  <%= image_tag current_user.avatar_url, :size => '150', :class => 'avatar pull-left media-object' %>
 
-<%= image_tag current_user.avatar_url, :size => '128' %>
-<%= link_to 'изменить', edit_avatar_path %>
+  <div class="media-body">
+    <div class="info">
+      <div>Вы вошли в систему как</div>
+      <strong><%= "#{current_user.name} #{current_user.surname}" %></strong>
+      <div><%= current_user.email %></div>
+    </div>
 
-<%= link_to 'Профиль', edit_user_registration_path %>
-<%= link_to 'Ключница', identities_path %>
+    <ul class="actions">
+      <li><%= link_to 'Изменить аватар', edit_avatar_path %></li>
+      <li><%= link_to 'Редактировать профиль', edit_user_registration_path %></li>
+      <li><%= link_to 'Ключница', identities_path %></li>
+    </ul>
+  </div>
+</div>

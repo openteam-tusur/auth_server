@@ -32,31 +32,29 @@ ru:
         current_password:               Необходим для подтверждения изменений
 
   page_title:
-    devise:
-      avatars:
-        edit:                           Редактирование аватара
-      sessions:
-        new:                            Вход в систему
-      registrations:
-        new:                            Регистрация
-        create:                         Регистрация
-        edit:                           Редактирование профиля
-        update:                         Редактирование профиля
-      passwords:
-        new:                            Восстановление пароля
-        create:                         Восстановление пароля
-        edit:                           Восстановление пароля
-        update:                         Восстановление пароля
-      confirmations:
-        new:                            Повторная отправка письма
-        create:                         Повторная отправка письма
-      identities:
-        index:                          Связанные аккаунты
-      users:
-        index:                          Управление пользователями
-        edit:                           Профиль
-      welcome:
-        index:                          Добро пожаловать
-
+    avatars:
+      edit:                           Редактирование аватара
+    sessions:
+      new:                            Вход в систему
+    registrations:
+      new:                            Регистрация
+      create:                         Регистрация
+      edit:                           Редактирование профиля
+      update:                         Редактирование профиля
+    passwords:
+      new:                            Восстановление пароля
+      create:                         Восстановление пароля
+      edit:                           Восстановление пароля
+      update:                         Восстановление пароля
+    confirmations:
+      new:                            Повторная отправка письма
+      create:                         Повторная отправка письма
+    identities:
+      index:                          Связанные аккаунты
+    users:
+      index:                          Управление пользователями
+      edit:                           Профиль
+    welcome:
+      index:                          Добро пожаловать
     main_page:
       index:                            Добро пожаловать
