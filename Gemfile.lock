@@ -56,7 +56,7 @@ GEM
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano-sidekiq (0.3.7)
+    capistrano-sidekiq (0.3.8)
       capistrano
       sidekiq
     capistrano3-unicorn (0.2.1)
@@ -167,7 +167,7 @@ GEM
     omniauth-yandex (0.0.2)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
-    openteam-capistrano (1.0.10)
+    openteam-capistrano (1.0.11)
       airbrake (~> 3.1.16)
       capistrano (~> 3.1)
       capistrano-db-tasks (~> 0.3)
@@ -317,7 +317,7 @@ DEPENDENCIES
   omniauth-twitter
   omniauth-vkontakte
   omniauth-yandex
-  openteam-capistrano (~> 1.0.10)
+  openteam-capistrano (~> 1.0.11)
   pg
   premailer-rails
   rails (= 4.1.6)

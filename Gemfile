@@ -41,7 +41,7 @@ group :default do
 end
 
 group :development do
-  gem 'openteam-capistrano',        '~> 1.0.10'
+  gem 'openteam-capistrano',        '~> 1.0.11'
   gem 'spring'
 end
 
