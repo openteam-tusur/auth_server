@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
     if identity.user != user
       identity.name = auth.info.name
       identity.image = auth.info.image
-      identity.url = auth.info.urls.values_at('GitHub', 'Twitter').compact[0]
+      identity.url = auth.info.urls.values_at('GitHub', 'Twitter', 'Facebook', 'Google', 'Vkontakte').compact[0] if auth.info.try(:urls)
       identity.user = user
       identity.save!
     end
