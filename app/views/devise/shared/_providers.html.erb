@@ -5,7 +5,7 @@
     <% resource_class.omniauth_providers.each do |provider| %>
       <li>
         <%= link_to omniauth_authorize_path(resource_name, provider), :class => "btn btn-primary btn-provider #{provider}" do %>
-          <%= content_tag :i, '', :class => "fa fa-#{provider}" %>
+          <%= content_tag :i, '', :class => "icon-provider icon-#{provider}" %>
         <% end %>
       </li>
     <% end %>
