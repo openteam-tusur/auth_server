@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   has_many :identities, :dependent => :destroy
   has_one  :avatar, :dependent => :destroy
-  has_gravatar :secure => true, :size => 96
+  has_gravatar :secure => true, :size => 150
 
   after_create :create_avatar
 
@@ -80,7 +80,8 @@ class User < ActiveRecord::Base
   end
 
   def after_database_authentication
-   RedisUserConnector.set(self.id, self.as_json(:only => [:surname, :name, :patronymic, :email]).to_a.flatten)
+   RedisUserConnector.set(self.id, self.as_json(:only => [:surname, :name, :patronymic, :email], :methods => [:avatar_url]).to_a.flatten)
+   RedisUserConnector.pub('broadcast', self.id)
   end
 
   def admin?
