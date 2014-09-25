@@ -12,8 +12,10 @@
     <% if user_signed_in? %>
       <li class="dropdown">
         <div class="dropdown-toggle login" data-toggle='dropdown'>
-          <span class='current_user truncated'><%= image_tag current_user.avatar_url, :size => '24' %><%= current_user %></span>
-          <b class='caret'></b>
+          <span class='current_user truncated'>
+            <%= image_tag current_user.avatar_url, :size => '24' %><%= current_user %>
+            <b class='caret'></b>
+          </span>
         </div>
 
         <ul class="dropdown-menu">
