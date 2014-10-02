@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 group :default do
   gem 'airbrake'
   gem 'attribute_normalizer',       '~> 1.2.0'
-  gem 'auth_redis_user_connector'
+  gem 'auth_redis_user_connector',  :github => 'openteam-tusur/auth_redis_user_connector'
   gem 'browser'
   gem 'coffee-rails',               '~> 4.0.0'
   gem 'compass-rails',              '~> 2.0.0'
